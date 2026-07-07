@@ -1,0 +1,11 @@
+{
+	"id": "agent-chat",
+	"name": "Agent Chat",
+	"version": "0.1.0",
+	"minAppVersion": "1.5.0",
+	"description": "A chatbot for your vault with swappable LLM providers (Ollama, Gemini, OpenAI, Anthropic), MCP server connections, and local memory.",
+	"author": "Nicolas Arthur",
+	"authorUrl": "https://github.com/NicolasArthurDev",
+	"fundingUrl": "https://github.com/sponsors/NicolasArthurDev",
+	"isDesktopOnly": true
+}

@@ -1,0 +1,19 @@
+{
+	"extends": "@tsconfig/svelte/tsconfig.json",
+	"compilerOptions": {
+		"module": "ESNext",
+		"target": "ES2021",
+		"strict": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"noUncheckedIndexedAccess": true,
+		"moduleResolution": "bundler",
+		"isolatedModules": true,
+		"skipLibCheck": true,
+		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
+		"verbatimModuleSyntax": false,
+		"lib": ["ES2021", "DOM", "DOM.Iterable"]
+	},
+	"include": ["src/**/*.ts", "src/**/*.svelte", "tests/**/*.ts"]
+}
