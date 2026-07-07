@@ -1,0 +1,58 @@
+name: Bug report
+description: Report something that is not working as expected.
+title: '[Bug]: '
+labels: ['bug']
+body:
+    - type: markdown
+      attributes:
+          value: Thanks for taking the time to file a bug report!
+    - type: textarea
+      id: what-happened
+      attributes:
+          label: What happened?
+          description: A clear description of the bug and what you expected instead.
+      validations:
+          required: true
+    - type: textarea
+      id: steps
+      attributes:
+          label: Steps to reproduce
+          description: Minimal, ordered steps to trigger the bug.
+          placeholder: |
+              1. Open the chat panel
+              2. Select provider X
+              3. ...
+      validations:
+          required: true
+    - type: input
+      id: plugin-version
+      attributes:
+          label: Plugin version
+          placeholder: e.g. 0.1.0
+      validations:
+          required: true
+    - type: input
+      id: obsidian-version
+      attributes:
+          label: Obsidian version
+          placeholder: e.g. 1.5.0
+      validations:
+          required: true
+    - type: dropdown
+      id: provider
+      attributes:
+          label: Provider in use
+          options:
+              - Ollama
+              - Gemini
+              - OpenAI
+              - Anthropic
+              - Not applicable
+      validations:
+          required: false
+    - type: textarea
+      id: logs
+      attributes:
+          label: Relevant logs
+          description: Console output from the developer tools, if any. Redact API keys.
+          render: shell

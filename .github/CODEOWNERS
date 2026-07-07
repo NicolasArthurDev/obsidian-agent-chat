@@ -1,0 +1,6 @@
+# Default owner for everything in the repository.
+* @NicolasArthurDev
+
+# Architecture and specifications require maintainer review.
+/docs/adr/    @NicolasArthurDev
+/docs/specs/  @NicolasArthurDev

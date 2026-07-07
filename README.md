@@ -1,92 +1,76 @@
-# Obsidian Sample Plugin
+# Agent Chat for Obsidian
 
-This is a sample plugin for Obsidian (https://obsidian.md).
+> A chatbot for your vault with swappable LLM providers, MCP server connections, and local memory.
 
-This project uses TypeScript to provide type checking and documentation.
-The repo depends on the latest plugin API (obsidian.d.ts) in TypeScript Definition format, which contains TSDoc comments describing what it does.
+Agent Chat adds a conversational AI panel to Obsidian. Talk to a model, let it call
+tools exposed by [MCP](https://modelcontextprotocol.io) servers, keep durable memory,
+and persist every conversation — all inside your vault, on your machine.
 
-This sample plugin demonstrates some of the basic functionality the plugin API can do.
+> **Status:** early development. See the [roadmap](#roadmap) and [CHANGELOG](CHANGELOG.md).
+> **Desktop only:** this plugin requires the Obsidian desktop app (it spawns local MCP
+> processes and uses Node APIs). It does not run on mobile.
 
-- Adds a ribbon icon, which shows a Notice when clicked.
-- Adds a command "Open modal (simple)" which opens a Modal.
-- Adds a plugin setting tab to the settings page.
-- Registers a global click event and outputs a Notice on click.
-- Registers a global interval which logs 'setInterval' to the console.
+## Features
 
-## First time developing plugins?
+- **Chat panel** — a dedicated view for talking to an LLM about your notes.
+- **Swappable providers** — switch between **Ollama**, **Google Gemini**, **OpenAI**,
+  and **Anthropic** without changing anything else.
+- **MCP connections** — add, edit, configure, and remove Model Context Protocol servers
+  (local `stdio` commands or remote HTTP/SSE endpoints). Their tools become available to
+  the agent.
+- **Local memory & sessions** — durable memory and full chat history stored on disk under
+  `.obsidian/plugins/agent-chat/`.
+- **Interoperable** — exposes a public API so other plugins can register custom tools and
+  send messages; the agent can trigger Obsidian commands and read/write notes.
 
-Quick starting guide for new plugin devs:
+## Installation
 
-- Check if [someone already developed a plugin for what you want](https://obsidian.md/plugins)! There might be an existing plugin similar enough that you can partner up with.
-- Make a copy of this repo as a template with the "Use this template" button (login to GitHub if you don't see it).
-- Clone your repo to a local development folder. For convenience, you can place this folder in your `.obsidian/plugins/your-plugin-name` folder.
-- Install NodeJS, then run `npm i` in the command line under your repo folder.
-- Run `npm run dev` to compile your plugin from `src/main.ts` to `main.js`.
-- Make changes to `src/main.ts` (or create new `.ts` files). Those changes should be automatically compiled into `main.js`.
-- Reload Obsidian to load the new version of your plugin.
-- Enable plugin in settings window.
-- For updates to the Obsidian API run `npm update` in the command line under your repo folder.
+Until the plugin is in the community catalog, install it manually:
 
-## Releasing new releases
+1. Download `main.js`, `manifest.json`, and `styles.css` from the latest
+   [release](https://github.com/NicolasArthurDev/obsidian-agent-chat/releases).
+2. Copy them into `<your-vault>/.obsidian/plugins/agent-chat/`.
+3. Reload Obsidian and enable **Agent Chat** in **Settings → Community plugins**.
 
-- Update your `manifest.json` with your new version number, such as `1.0.1`, and the minimum Obsidian version required for your latest release.
-- Update your `versions.json` file with `"new-plugin-version": "minimum-obsidian-version"` so older versions of Obsidian can download an older version of your plugin that's compatible.
-- Create new GitHub release using your new version number as the "Tag version". Use the exact version number, don't include a prefix `v`. See here for an example: https://github.com/obsidianmd/obsidian-sample-plugin/releases
-- Upload the files `manifest.json`, `main.js`, `styles.css` as binary attachments. Note: The manifest.json file must be in two places, first the root path of your repository and also in the release.
-- Publish the release.
+For local development, see [docs/development.md](docs/development.md).
 
-> You can simplify the version bump process by running `npm version patch`, `npm version minor` or `npm version major` after updating `minAppVersion` manually in `manifest.json`.
-> The command will bump version in `manifest.json` and `package.json`, and add the entry for the new version to `versions.json`
+## Configuration
 
-## Adding your plugin to the community plugin list
+Open **Settings → Agent Chat** to configure:
 
-- Check the [plugin guidelines](https://docs.obsidian.md/Plugins/Releasing/Plugin+guidelines).
-- Publish an initial version.
-- Make sure you have a `README.md` file in the root of your repo.
-- Make a pull request at https://github.com/obsidianmd/obsidian-releases to add your plugin.
+- **System prompt** — the base instruction for the agent.
+- **Provider** — pick the active provider and set its API key, base URL, and model.
+- **MCP servers** — add and manage connections.
+- **Memory** — enable durable memory and set limits.
 
-## How to use
+> **Security note:** API keys are stored in plain text in the plugin's `data.json`, which
+> is the Obsidian norm. See [SECURITY.md](SECURITY.md).
 
-- Clone this repo.
-- Make sure your NodeJS is at least v18 (`node --version`).
-- `npm i` to install dependencies.
-- `npm run dev` to start compilation in watch mode.
+## Documentation
 
-## Manually installing the plugin
+- [Architecture](docs/architecture.md)
+- [Public API](docs/api.md)
+- [Development guide](docs/development.md)
+- [Architecture Decision Records](docs/adr/)
+- [Feature specifications](docs/specs/)
 
-- Copy over `main.js`, `styles.css`, `manifest.json` to your vault `VaultFolder/.obsidian/plugins/your-plugin-id/`.
+## Roadmap
 
-## Improve code quality with eslint
+| Milestone | Scope                                           |
+| --------- | ----------------------------------------------- |
+| M0        | Repository foundation, governance, tooling      |
+| M1        | Core architecture, chat view skeleton, settings |
+| M2        | Four providers with streaming                   |
+| M3        | MCP connections and tool calling                |
+| M4        | Memory and session persistence                  |
+| M5        | Public API and interop                          |
+| M6        | Polish, docs, first release                     |
 
-- [ESLint](https://eslint.org/) is a tool that analyzes your code to quickly find problems. You can run ESLint against your plugin to find common bugs and ways to improve your code.
-- This project already has eslint preconfigured, you can invoke a check by running`npm run lint`
-- Together with a custom eslint [plugin](https://github.com/obsidianmd/eslint-plugin) for Obsidan specific code guidelines.
-- A GitHub action is preconfigured to automatically lint every commit on all branches.
+## Contributing
 
-## Funding URL
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md),
+[GOVERNANCE.md](GOVERNANCE.md), and our [Code of Conduct](CODE_OF_CONDUCT.md).
 
-You can include funding URLs where people who use your plugin can financially support it.
+## License
 
-The simple way is to set the `fundingUrl` field to your link in your `manifest.json` file:
-
-```json
-{
-	"fundingUrl": "https://buymeacoffee.com"
-}
-```
-
-If you have multiple URLs, you can also do:
-
-```json
-{
-	"fundingUrl": {
-		"Buy Me a Coffee": "https://buymeacoffee.com",
-		"GitHub Sponsor": "https://github.com/sponsors",
-		"Patreon": "https://www.patreon.com/"
-	}
-}
-```
-
-## API Documentation
-
-See https://docs.obsidian.md
+[MIT](LICENSE) © Nicolas Arthur
