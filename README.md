@@ -76,6 +76,15 @@ Open **Settings → Agent Chat** to configure:
 | M8        | Shareable agent flows                                         |
 | M9        | Polish, docs, first release                                   |
 
+## Support
+
+If Agent Chat is useful to you, consider sponsoring its development. Sponsorship funds
+maintenance, new providers, and the roadmap features.
+
+- [❤️ Sponsor on GitHub](https://github.com/sponsors/NicolasArthurDev)
+
+Every contribution helps and is genuinely appreciated.
+
 ## Contributing
 
 Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md),
