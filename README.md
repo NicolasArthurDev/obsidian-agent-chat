@@ -82,6 +82,7 @@ If Agent Chat is useful to you, consider sponsoring its development. Sponsorship
 maintenance, new providers, and the roadmap features.
 
 - [❤️ Sponsor on GitHub](https://github.com/sponsors/NicolasArthurDev)
+- [☕ Buy me a coffee on Ko-fi](https://ko-fi.com/nicolasarthur)
 
 Every contribution helps and is genuinely appreciated.
 
