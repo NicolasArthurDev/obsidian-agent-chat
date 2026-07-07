@@ -9,3 +9,4 @@ accepted; if a decision changes, add a new ADR that supersedes the old one.
 - [0002 — Desktop-only and MCP transports](0002-desktop-only-mcp-transport.md)
 - [0003 — Svelte for the UI](0003-svelte-ui.md)
 - [0004 — Storage location](0004-storage-location.md)
+- [0005 — Product positioning: an MCP-native agent workspace](0005-product-positioning.md)

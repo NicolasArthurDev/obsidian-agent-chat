@@ -11,6 +11,10 @@ changes behavior.
 - [0003 — MCP connections](0003-mcp.md)
 - [0004 — Memory and sessions](0004-memory-sessions.md)
 - [0005 — Public API](0005-public-api.md)
+- [0006 — Vault as an MCP server](0006-vault-mcp-server.md)
+- [0007 — Safe agency and shell tools](0007-safe-agency-shell.md)
+- [0008 — Multimodal: images and Excalidraw to notes](0008-multimodal-excalidraw.md)
+- [0009 — Shareable agent flows](0009-agent-flows.md)
 
 ## Status legend
 

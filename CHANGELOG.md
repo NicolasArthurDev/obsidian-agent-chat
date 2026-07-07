@@ -13,6 +13,9 @@ project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
   templates, sponsorship configuration.
 - Documentation scaffolding: architecture overview, architecture decision records, and
   feature specifications.
+- Product positioning as an MCP-native agent workspace (ADR 0005) with specs for the vault
+  MCP server, safe agency and OS-aware shell tools, multimodal note generation, and agent
+  flows.
 - Tooling: Svelte build pipeline, Vitest test runner, Prettier, and expanded CI.
 
 [Unreleased]: https://github.com/NicolasArthurDev/obsidian-agent-chat/commits/master

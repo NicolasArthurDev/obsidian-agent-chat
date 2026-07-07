@@ -6,6 +6,13 @@ Agent Chat adds a conversational AI panel to Obsidian. Talk to a model, let it c
 tools exposed by [MCP](https://modelcontextprotocol.io) servers, keep durable memory,
 and persist every conversation — all inside your vault, on your machine.
 
+**Vision:** not another "chat with your notes" plugin, but the **MCP-native agent workspace
+for Obsidian**. Four pillars set it apart (see [ADR 0005](docs/adr/0005-product-positioning.md)):
+bidirectional MCP (be an MCP client _and_ expose the vault as an MCP server for Claude
+Desktop, Codex, and Cursor), safe agency over the vault (plan → approve → diff → undo, plus
+an OS-aware shell), native multimodal moments (Excalidraw and images to structured notes), and
+shareable agent flows.
+
 > **Status:** early development. See the [roadmap](#roadmap) and [CHANGELOG](CHANGELOG.md).
 > **Desktop only:** this plugin requires the Obsidian desktop app (it spawns local MCP
 > processes and uses Node APIs). It does not run on mobile.
@@ -56,15 +63,18 @@ Open **Settings → Agent Chat** to configure:
 
 ## Roadmap
 
-| Milestone | Scope                                           |
-| --------- | ----------------------------------------------- |
-| M0        | Repository foundation, governance, tooling      |
-| M1        | Core architecture, chat view skeleton, settings |
-| M2        | Four providers with streaming                   |
-| M3        | MCP connections and tool calling                |
-| M4        | Memory and session persistence                  |
-| M5        | Public API and interop                          |
-| M6        | Polish, docs, first release                     |
+| Milestone | Scope                                                         |
+| --------- | ------------------------------------------------------------- |
+| M0        | Repository foundation, governance, tooling                    |
+| M1        | Core architecture, chat view skeleton, settings               |
+| M2        | Four providers with streaming                                 |
+| M3        | MCP connections and tool calling (the core)                   |
+| M4        | Memory and session persistence                                |
+| M5        | Public API + vault as an MCP server                           |
+| M6        | Safe agency: vault + OS-aware shell tools (approve/diff/undo) |
+| M7        | Multimodal: Excalidraw and images to structured notes         |
+| M8        | Shareable agent flows                                         |
+| M9        | Polish, docs, first release                                   |
 
 ## Contributing
 
